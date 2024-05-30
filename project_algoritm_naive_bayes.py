@@ -69,11 +69,11 @@ print(f"Precisão do modelo: {precisao:.2f}")
 print("Relatório de Classificação:\n", report)
 
 # Testar nova música
-nova_letra = ["Estou sozinha"]
+nova_letra = ["FRASE DE MÚSICA PARA TESTAR!"]
 nova_letra_transformada = vetorizador.transform(nova_letra)
 previsao_nova_letra = modelo.predict(nova_letra_transformada)
 
 if previsao_nova_letra[0] == 0:
-    print("A frase é positiva.")
+    print("Essa frase é de uma música que tem sentimentos de felicidade.")
 else:
-    print("A frase é negativa.")
+    print("Essa frase é de uma música que tem sentimentos de tristeza.")
