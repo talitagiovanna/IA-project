@@ -42,11 +42,28 @@ letras = ['Felicidade é viver na sua companhia', #feliz(0)
           'Eu não quero ser triste pra sempre', #triste(1)
           'Dói sem tanto te lembrar', #triste(1)
           'Dói ter que controlar a vontade doida de te ligar', #triste(1)
-          'Eu sou daqueles que chora e cai quando cê não quer mais' #triste(1)
+          'Eu sou daqueles que chora e cai quando cê não quer mais', #triste(1)
+          'O seu sorriso vale mais que diamante', #feliz(0)
+          'Você vai rir sem perceber Felicidade é só questão de ser', #feliz(0)
+          'Um dia pretendo tentar descobrir porque é mais forte quem sabe mentir', #triste(1)
+          'Meu melhor amigo é o meu amor', #feliz(0)
+          'Me perdi no sorriso nem preciso me encontrar', #feliz(0)
+          'Meu coração bate ligeiramente apertado', #triste(1)
+          'Você partiu meu coração', #triste(1)
+          'Estou mal vem me ajudar', #triste(1)
+          'Vou tomar conta de você', #feliz(0)
+          'saudade palavra triste' #triste(1)
+          'Hoje eu acordei me veio a falta de você', #triste(1)
+          'uma eternidade pra se arrepender', #triste(1)
+          'faz uma loucura por mim sai bebendo por ai', #triste(1)
+          'A amizade nem mesmo a força do tempo irá destruir', #feliz(0)
+          'Quero chorar o teu choro quero sorrir seu sorriso', #feliz(0)
+          'Valeu por você existir amigo', #feliz(0)
+          'O tempo passou e eu sofri calado' #triste(1)
           ] 
 
 #categorias correspondentes (0 para feliz e 1 para triste)"
-categorias = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1]
+categorias = [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1]
 
 # Vetorização dos textos
 vetorizador = CountVectorizer()
@@ -69,7 +86,7 @@ print(f"Precisão do modelo: {precisao:.2f}")
 print("Relatório de Classificação:\n", report)
 
 # Testar nova música
-nova_letra = ["FRASE DE MÚSICA PARA TESTAR!"]
+nova_letra = ["Estou triste precisando de você"]
 nova_letra_transformada = vetorizador.transform(nova_letra)
 previsao_nova_letra = modelo.predict(nova_letra_transformada)
 
