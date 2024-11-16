@@ -1,74 +1,95 @@
 import spacy
 
 # Carregar o modelo em português
-nlp = spacy.load("pt_core_news_md")
+nlp = spacy.load("pt_core_news_lg")
 
 # Exemplo de letras de músicas
-letras = ['Felicidade é viver na sua companhia', #feliz(0)
-          'Vagando triste por sobre a flor', #triste(1)
-          'Hoje eu acordei feliz, sonhei com ela a noite inteira', #feliz(0)
-          'Saudade, palavra triste quando se perde um grande amor', #triste(1)
-          'Sou feliz, alegre e forte, tenho amor e sorte', #feliz(0)
-          'E quando vem a lucidez, estou sozinho outra vez', #triste(1)
-          'É amor, felicidade transbordando em mim', #feliz(0)
-          'Ai, meu Deus, eu vou morrer sozinho, se eu continuar nesse caminho', #triste(1)
-          'A felicidade então nos sorriu', #feliz(0)
-          'E eu sei que chora, não finge que não viveu toda nossa história', #triste(1)
-          'Estamos, meu bem, por um triz, pro dia nascer feliz', #feliz(0)
-          'Porque não haverá luz do Sol, se eu te perder, amor', #triste(1)
-          'Alegria, deixa invadir e transbordar seu coração com boas energias', #feliz(0)
-          'Peito machucado, lágrimas caídas pelo chão', #triste(1)
-          'Eu quero que a vida seja feita de alegria', #feliz(0)
-          'Solidão, quando uma luz se apaga, eu de novo em casa, morrendo de amor por ela', #triste(1)
-          'É felicidade que explodiu, todo mundo entende, tá muito evidente', #feliz(0)
-          'Por que você não cola em mim? Tô me sentindo muito sozinho', #triste(1)
-          'Porque estou feliz, bata palmas se sentir que a felicidade é a verdade', #feliz(0)
-          'Mas por trás do celular ainda dói, ainda dói', #triste (1)
-          'Olha o meu sorriso de felicidade, veja o nosso mundo de sinceridade', #feliz(0)
-          'Não ouvir o coração, desse jeito a gente pede pra sofrer', #triste(1)
-          'Eu te vi, já te quis, me vi tão feliz', #feliz(0)
-          'Nem me dei conta o tanto que chorei', #triste(1)
-          'Esse riso cristalino de alegria', #feliz(0)
-          'Lágrimas que invadem meu coração', #triste(1)
-          'Agora que voltou, sorri, sou rei', #feliz(0)
-          'Coração magoado, amou e não foi amado, sofre todo dia, porque fui enganado', #triste(1)
-          'O Sol nas bancas de revista me enche de alegria e preguiça', #feliz(0)
-          'É dor que não passa nunca mais, são coisas de anos atrás e eu continuo chorando por ela', #triste(1)
-          'Gosto muito de te ver leãozinho', #feliz(0)
-          'Já não sinto pena, só dói as feridas', #triste(1)
-          'Chegou, chegou, tá na hora da alegria', #feliz(0)
-          'E os dias quentes são tão frios e as noites me trazem a dor desse amor', #triste(1)
-          'Terminar gostando, dói, dói, dói demais', #triste(1)
-          'Eu não quero ser triste pra sempre', #triste(1)
-          'Dói sem tanto te lembrar', #triste(1)
-          'Dói ter que controlar a vontade doida de te ligar', #triste(1)
-          'Eu sou daqueles que chora e cai quando cê não quer mais', #triste(1)
-          'O seu sorriso vale mais que diamante', #feliz(0)
-          'Você vai rir sem perceber Felicidade é só questão de ser', #feliz(0)
-          'Um dia pretendo tentar descobrir porque é mais forte quem sabe mentir', #triste(1)
-          'Meu melhor amigo é o meu amor', #feliz(0)
-          'Me perdi no sorriso nem preciso me encontrar', #feliz(0)
-          'Meu coração bate ligeiramente apertado', #triste(1)
-          'Você partiu meu coração', #triste(1)
-          'Estou mal vem me ajudar', #triste(1)
-          'Vou tomar conta de você', #feliz(0)
-          'saudade palavra triste' #triste(1)
-          'Hoje eu acordei me veio a falta de você', #triste(1)
-          'uma eternidade pra se arrepender', #triste(1)
-          'faz uma loucura por mim sai bebendo por ai', #triste(1)
-          'A amizade nem mesmo a força do tempo irá destruir', #feliz(0)
-          'Quero chorar o teu choro quero sorrir seu sorriso', #feliz(0)
-          'Valeu por você existir amigo', #feliz(0)
-          'O tempo passou e eu sofri calado' #triste(1)
+letras = ['Felicidade é viver na sua companhia', 
+          'Vagando triste por sobre a flor', 
+          'Hoje eu acordei feliz, sonhei com ela a noite inteira', 
+          'Saudade, palavra triste quando se perde um grande amor',
+          'Sou feliz, alegre e forte, tenho amor e sorte', 
+          'E quando vem a lucidez, estou sozinho outra vez',
+          'É amor, felicidade transbordando em mim', 
+          'Ai, meu Deus, eu vou morrer sozinho, se eu continuar nesse caminho', 
+          'A felicidade então nos sorriu', 
+          'E eu sei que chora, não finge que não viveu toda nossa história',
+          'Estamos, meu bem, por um triz, pro dia nascer feliz', 
+          'Porque não haverá luz do Sol, se eu te perder, amor', 
+          'Alegria, deixa invadir e transbordar seu coração com boas energias',
+          'Peito machucado, lágrimas caídas pelo chão', 
+          'Eu quero que a vida seja feita de alegria', 
+          'Solidão, quando uma luz se apaga, eu de novo em casa, morrendo de amor por ela',
+          'É felicidade que explodiu, todo mundo entende, tá muito evidente',
+          'Por que você não cola em mim? Tô me sentindo muito sozinho',
+          'Porque estou feliz, bata palmas se sentir que a felicidade é a verdade',
+          'Mas por trás do celular ainda dói, ainda dói',
+          'Olha o meu sorriso de felicidade, veja o nosso mundo de sinceridade',
+          'Não ouvir o coração, desse jeito a gente pede pra sofrer',
+          'Eu te vi, já te quis, me vi tão feliz',
+          'Nem me dei conta o tanto que chorei',
+          'Esse riso cristalino de alegria',
+          'Lágrimas que invadem meu coração',
+          'Agora que voltou, sorri, sou rei',
+          'Coração magoado, amou e não foi amado, sofre todo dia, porque fui enganado',
+          'O Sol nas bancas de revista me enche de alegria e preguiça',
+          'É dor que não passa nunca mais, são coisas de anos atrás e eu continuo chorando por ela',
+          'Gosto muito de te ver leãozinho',
+          'Já não sinto pena, só dói as feridas',
+          'Chegou, chegou, tá na hora da alegria',
+          'E os dias quentes são tão frios e as noites me trazem a dor desse amor',
+          'Terminar gostando, dói, dói, dói demais',
+          'Eu não quero ser triste pra sempre',
+          'Dói sem tanto te lembrar',
+          'Dói ter que controlar a vontade doida de te ligar',
+          'Eu sou daqueles que chora e cai quando cê não quer mais',
+          'O seu sorriso vale mais que diamante',
+          'Você vai rir sem perceber Felicidade é só questão de ser',
+          'Um dia pretendo tentar descobrir porque é mais forte quem sabe mentir',
+          'Meu melhor amigo é o meu amor',
+          'Me perdi no sorriso nem preciso me encontrar',
+          'Meu coração bate ligeiramente apertado',
+          'Você partiu meu coração',
+          'Estou mal vem me ajudar',
+          'Vou tomar conta de você',
+          'saudade palavra triste'
+          'Hoje eu acordei me veio a falta de você',
+          'uma eternidade pra se arrepender',
+          'faz uma loucura por mim sai bebendo por ai',
+          'A amizade nem mesmo a força do tempo irá destruir',
+          'Quero chorar o teu choro quero sorrir seu sorriso',
+          'Valeu por você existir amigo',
+          'O tempo passou e eu sofri calado'
           ]
 
-# Função para classificar gramaticalmente
+# Dicionário de tradução das classificações gramaticais
+traducao_pos = {
+    "ADJ": "Adjetivo",
+    "ADP": "Preposição",
+    "ADV": "Advérbio",
+    "AUX": "Verbo Auxiliar",
+    "CCONJ": "Conjunção Coordenativa",
+    "DET": "Determinante",
+    "INTJ": "Interjeição",
+    "NOUN": "Substantivo",
+    "NUM": "Número",
+    "PART": "Partícula",
+    "PRON": "Pronome",
+    "PROPN": "Nome Próprio",
+    "PUNCT": "Pontuação",
+    "SCONJ": "Conjunção Subordinativa",
+    "SYM": "Símbolo",
+    "VERB": "Verbo",
+    "X": "Outro"
+}
+
+# Função para classificar gramaticalmente e traduzir para português
 def classificar_gramaticalmente(texto):
     doc = nlp(texto)
-    classificacao = [(token.text, token.pos_) for token in doc]
+    classificacao = [(token.text, traducao_pos.get(token.pos_, token.pos_)) for token in doc]
     return classificacao
 
-# Aplicando a função nas letras
+# Aplicando a função nas letras e exibindo a classificação
 for letra in letras:
     print(f"Frase: {letra}")
     print("Classificação gramatical:", classificar_gramaticalmente(letra))
